@@ -1,0 +1,38 @@
+[package]
+name = "harpy"
+authors = ["27justin <me@justin.cx>"]
+version = "0.1.0"
+description = "An ARP spoofing and network analysis tool"
+repository = "https://github.com/27justin/harpy"
+keywords = ["arp", "spoof", "network", "analysis", "lua"]
+edition = "2021"
+
+[dependencies]
+pnet = { version = "0.31.0", features = ["default", "std", "pcap", "pnet_datalink"] }
+
+pnet_macros = { version = "0.31.0" }
+pnet_macros_support = { version = "0.31.0" }
+
+clap = { version = "3.1.18", features = ["derive"] }
+# To deserialize TLS data
+rustls = "^0.20"
+
+pretty_env_logger = "^0.4"
+log = "^0.4"
+
+spmc = "^0.3"
+
+rlua = "0.19.2"
+
+# QUIC decryption
+#hkdf = "0.12.3"
+#sha2 = "*"
+#aes-gcm = "0.9.*"
+
+[dev-dependencies]
+hex-literal = "0.3.*"
+
+
+[[bin]]
+name = "harpy"
+path = "src/main.rs"
